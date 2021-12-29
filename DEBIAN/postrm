@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm -rf \
+/usr/bin/tomatotime \
+/usr/share/tomatotime \
+/usr/share/tomatotime

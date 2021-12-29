@@ -1,0 +1,19 @@
+#!/bin/bash
+
+mkdir -p $HOME/.config/tomatotime
+
+if [ ! -f $HOME/.config/tomatotime/app.log ]; then
+    touch $HOME/.config/tomatotime/app.log
+fi
+
+if [ ! -f $HOME/.config/tomatotime/app.pid ]; then
+    touch $HOME/.config/tomatotime/app.pid
+    /usr/bin/python3 /usr/share/tomatotime/run.py &>> $HOME/.config/tomatotime/app.log &
+    echo $! > $HOME/.config/tomatotime/app.pid
+else
+    kill -0 $(cat $HOME/.config/tomatotime/app.pid) &> /dev/null
+    if [ $? -eq 1 ]; then
+        /usr/bin/python3 /usr/share/tomatotime/run.py &>> $HOME/.config/tomatotime/app.log &
+        echo $! > $HOME/.config/tomatotime/app.pid
+    fi
+fi

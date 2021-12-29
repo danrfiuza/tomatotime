@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0.0
+Name=Tomato Time
+Comment=A tiny app to provide a productive time
+Exec=/usr/bin/tomatotime
+Icon=/usr/share/tomatotime/tomato.png
+Path=/usr/share/tomatotime
+Terminal=false
+Type=Application
+Categories=Utility;Application;
